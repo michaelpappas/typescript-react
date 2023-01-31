@@ -17,8 +17,6 @@ interface NewBoxFormPropsInterface{
   createBox(newBox:BoxListInterface): void
 }
 
-
-
 interface FormDataInterface{
   width: string,
   height: string,

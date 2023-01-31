@@ -12,14 +12,14 @@
 
 interface BoxPropInterface{
   id: string,
-  width: number | string,
-  height: number | string,
+  width: string,
+  height: string,
   backgroundColor: string,
   remove(id:string): void
 }
 
 
-function Box({ id, width = 5, height = 5, backgroundColor, remove }:BoxPropInterface) {
+function Box({ id, width = "5", height = "5", backgroundColor, remove }:BoxPropInterface) {
 
   /** Remove a box. */
   function handleRemove():void {

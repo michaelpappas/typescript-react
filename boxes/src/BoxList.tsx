@@ -4,8 +4,8 @@ import NewBoxForm from "./NewBoxForm";
 
 interface BoxListInterface{
   id: string,
-  width: number | string,
-  height: number | string,
+  width: string,
+  height: string,
   backgroundColor: string
 }
 
