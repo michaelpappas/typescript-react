@@ -2,6 +2,14 @@ import React, { useState } from "react";
 import Box from "./Box";
 import NewBoxForm from "./NewBoxForm";
 
+interface BoxListInterface{
+  id: string,
+  width: number | string,
+  height: number | string,
+  backgroundColor: string
+}
+
+
 /** Manage list of boxes
  *
  * State:
@@ -9,29 +17,29 @@ import NewBoxForm from "./NewBoxForm";
  */
 
 function BoxList() {
-  const [boxes, setBoxes] = useState([])
+  const [boxes, setBoxes] = useState<BoxListInterface[]>([])
 
   /** add box with given { id, width, height, backgroundColor } */
-  function add(newBox) {
+  function add(newBox:BoxListInterface):void {
     setBoxes(boxes => [...boxes, newBox]);
   }
 
   /** remove box matching that id. */
-  function remove(id: string) {
+  function remove(id: string):void {
     setBoxes(boxes => boxes.filter(box => box.id !== id));
   }
 
   return (
     <div>
       <NewBoxForm createBox={add} />
-      {boxes.map(({ id, width, height, backgroundColor }) => (
+      {boxes.map((box: BoxListInterface) => (
         <Box
-          key={id}
-          id={id}
-          width={width}
-          height={height}
+          key={box.id}
+          id={box.id}
+          width={box.width}
+          height={box.height}
           remove={remove}
-          backgroundColor={backgroundColor}
+          backgroundColor={box.backgroundColor}
         />
       ))}
     </div>
@@ -39,3 +47,4 @@ function BoxList() {
 }
 
 export default BoxList;
+export type {BoxListInterface}

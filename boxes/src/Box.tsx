@@ -10,10 +10,19 @@
  * BoxList -> Box
  */
 
-function Box({ id, width = 5, height = 5, backgroundColor, remove }) {
+interface BoxPropInterface{
+  id: string,
+  width: number | string,
+  height: number | string,
+  backgroundColor: string,
+  remove(id:string): void
+}
+
+
+function Box({ id, width = 5, height = 5, backgroundColor, remove }:BoxPropInterface) {
 
   /** Remove a box. */
-  function handleRemove() {
+  function handleRemove():void {
     remove(id);
   }
 
